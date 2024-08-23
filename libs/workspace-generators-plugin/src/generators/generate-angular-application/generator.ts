@@ -2,7 +2,7 @@ import {
   Tree,
 } from '@nx/devkit';
 import { GenerateAngularApplicationGeneratorSchema } from './schema';
-import { applicationGenerator } from '@nx/angular/generators';
+import { applicationGenerator, E2eTestRunner } from '@nx/angular/generators';
 
 export async function generateAngularApplicationGenerator(
   tree: Tree,
@@ -14,7 +14,8 @@ export async function generateAngularApplicationGenerator(
     style: 'scss',
     directory: `${options.domain}`,
     tags: `domain:${options.domain}, type:app`,
-    routing: true
+    routing: true,
+    e2eTestRunner: E2eTestRunner.Cypress
   });
 
   const indexHtmlPath = `apps/${options.domain}/${options.name}/src/index.html`;
