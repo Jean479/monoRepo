@@ -4,6 +4,11 @@
       "factory": "./src/generators/generate-angular-library/generator",
       "schema": "./src/generators/generate-angular-library/schema.json",
       "description": "generate-angular-library generator"
+    },
+    "generate-angular-application": {
+      "factory": "./src/generators/generate-angular-application/generator",
+      "schema": "./src/generators/generate-angular-application/schema.json",
+      "description": "generate-angular-application generator"
     }
   }
 }
