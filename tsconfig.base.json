@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@bt-libs/shared/ui/common-components": [
+        "libs/shared/ui/common-components/src/index.ts"
+      ],
       "@business-tools/workspace-generators-plugin": [
         "libs/workspace-generators-plugin/src/index.ts"
       ]
