@@ -12,8 +12,17 @@ import { RouterLink } from '@angular/router';
 })
 export class NavbarComponent implements OnChanges, OnInit {
 
+  private _navItems: NavbarItem[] = [];
 
-  @Input() navbarItems!: NavbarItem[];
+  @Input() //navbarItems!: NavbarItem[];
+  set navbarItems(value: NavbarItem[]) {
+    this._navItems = [{label: 'home', route: '/'}, ...value]
+  }
+  get navbarItems(): NavbarItem[] {
+    return this._navItems;
+  }
+  
+  //@Input() navbarItems!: NavbarItem[];
   // navbarItems = input([], { transform: addHome });
   @Input() languages!: string[];
   // languages = input<string[]>([]);

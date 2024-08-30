@@ -14,7 +14,6 @@ export class AppComponent {
   title = 'finance-expenses-registration';
 
   navItems: NavbarItem[] = [
-    {label: 'home', route: '/'},
     {label: 'expenses overview', route: '/expenses-overview'},
     {label: 'expenses approval', route: '/expenses-approval'},
   ];
