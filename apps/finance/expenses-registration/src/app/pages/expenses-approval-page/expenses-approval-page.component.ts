@@ -12,8 +12,12 @@ import { TableComponent } from '@bt-libs/shared/ui/common-components';
 })
 export default class ExpensesApprovalPageComponent {
 
+  data = 'initData';
+
   handleDataChange($event: any) {
-    console.log(' change $event', $event)
+    console.log(' change $event', $event);
+
+    console.log('expenses data:', this.data);
   }
 
 }

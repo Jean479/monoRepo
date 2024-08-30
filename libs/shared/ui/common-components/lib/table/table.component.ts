@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,10 +10,17 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent {
+
+
+  @Input() selectData!: string;
+  @Output() selectDataChange = new EventEmitter<string>();;
+
+
   @Output() dataChanged = new EventEmitter();
 
 
   emitData() {
-    this.dataChanged.emit('table data changed')
+    this.selectDataChange.emit('data emited from table');
+    this.dataChanged.emit('table data changed');
   }
 }
