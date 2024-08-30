@@ -8,7 +8,9 @@ import { DashboardServiceFactory } from './factory/dashboard-service-factory';
 import { UserService } from './services/user.service';
 import { provideHttpClient } from '@angular/common/http';
 import { TranslocoHttpLoader } from './transloco-loader';
-import { getBrowserLang, provideTransloco } from '@jsverse/transloco';
+import { getBrowserLang, provideTransloco, TRANSLOCO_TRANSPILER } from '@jsverse/transloco';
+import { provideTranslocoLocale } from '@jsverse/transloco-locale';
+import { MessageFormatTranspiler, provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
 
 export const BASE_URL = new InjectionToken<string>('BASE_URL');
 
@@ -18,6 +20,17 @@ export const appConfig: ApplicationConfig = {
     { provide: DashboardService, useFactory: DashboardServiceFactory, deps: [UserService]},
     { provide: BASE_URL, useValue: 'anUrl'},
     provideZoneChangeDetection({ eventCoalescing: true }),
+    {provide: TRANSLOCO_TRANSPILER, useClass: MessageFormatTranspiler},
+    provideTranslocoLocale({
+      langToLocaleMapping: { en: 'en-US', fr: 'fr-FR', gb: 'en-GB' }
+    }),
+    //TranslocoMessageFormatModule.init(),
+
+ 
+    
+    /*provideTranslocoMessageformat({
+      locales: 'en-GB'
+    }),*/
     provideRouter(appRoutes, withComponentInputBinding()), provideHttpClient(), provideTransloco({
         config: { 
           availableLangs: ['en', 'fr', 'gb'],
@@ -27,6 +40,9 @@ export const appConfig: ApplicationConfig = {
           prodMode: !isDevMode(),
         },
         loader: TranslocoHttpLoader
+      }),
+      provideTranslocoMessageformat({
+        locales: 'en-GB'
       }),
   ],
 };

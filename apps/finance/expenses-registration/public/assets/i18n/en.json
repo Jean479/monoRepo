@@ -1,5 +1,13 @@
 {
     "hello-you": "Hello {{user}} en",
+    "icu": {
+        "title": "ICU Message Formatting",
+        "pluralization": "You have {count, plural, =0 {no apples} one {one apple} other {# apples}}!"
+    },
     "msg-hello": "hello en",
-    "msg-goodnight": "good night en"
+    "msg-goodnight": "good night en",
+    "myPluralRule": "{myCount, plural, =0 {no results} one {1 result} other {# results}}",
+    "obj": {
+        "child": "a child"
+    }
 }

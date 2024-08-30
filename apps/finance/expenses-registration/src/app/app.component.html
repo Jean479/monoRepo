@@ -24,5 +24,33 @@ ooo
     {{ 'hello-you' | translate : {user: 'toto'}  }}
 </div>
 
+<div>
+   >> {{ 'obj.child' | translate   }}
+</div>
+
 <h1 transloco="hello-you" [translocoParams]="{user: 'toto'}"></h1>
 <h1 translate="msg-hello"></h1>
+
+<p> {{ '1000.52' | translocoCurrency }} </p>
+<br><br>
+
+<br>
+<p> {{ currentDate | translocoDate: { dateStyle: 'medium', timeStyle: 'medium' } }} </p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<p> {{ 'myPluralRule' | transloco : {myCount: 0}  }}</p> 
+<p> {{ 'myPluralRule' | transloco : {myCount: 1}  }}</p> 
+<p> {{ 'myPluralRule' | transloco : {myCount: 2}  }}</p> <br>
+
+
+<ng-container *transloco="let t">
+    <h2>{{ t('icu.title') }}</h2>
+  
+    <p>{{ t('icu.pluralization', {count: 0}) }}</p>
+    <p>{{ t('icu.pluralization', {count: 1}) }}</p>
+    <p>{{ t('icu.pluralization', {count: 10}) }}</p>
+</ng-container>
