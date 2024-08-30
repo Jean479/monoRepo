@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, inject, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent, NavbarItem } from '@bt-libs/shared/ui/common-components';
 import { BASE_URL } from './app.config';
@@ -27,7 +27,10 @@ export class AppComponent implements OnInit {
     'de',
     'gb'
   ]
-  bUrl = inject(BASE_URL);
+  //bUrl = inject(BASE_URL);
+  constructor(@Inject(BASE_URL) private bUrl: string) {
+
+  }
 
   ngOnInit(): void {
     console.log(' navbar:', this.navBar);
