@@ -19,3 +19,10 @@ ooo
 <div>
     {{ aMessage  | translate }}
 </div>
+
+<div>
+    {{ 'hello-you' | translate : {user: 'toto'}  }}
+</div>
+
+<h1 transloco="hello-you" [translocoParams]="{user: 'toto'}"></h1>
+<h1 translate="msg-hello"></h1>

@@ -26,11 +26,13 @@ export class AppComponent implements OnInit {
     {label: 'expenses approval', route: '/expenses-approval'},
   ];
 
-  languages: string[] = [
+  languages_old: string[] = [
     'fr',
     'en',
     'gb'
   ];
+
+  languages = this.transLocoService.getAvailableLangs() as string[];
 
   aMessage = 'msg-goodnight';
 
