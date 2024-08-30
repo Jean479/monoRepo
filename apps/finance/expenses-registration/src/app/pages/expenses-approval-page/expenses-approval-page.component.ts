@@ -9,4 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrl: './expenses-approval-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExpensesApprovalPageComponent {}
+export default class ExpensesApprovalPageComponent {}
