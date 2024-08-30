@@ -15,10 +15,20 @@ export class DashboardComponent implements OnInit {
   private route = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    console.log(' init dash \n' +
-    this.route.snapshot.paramMap.get('id') + '\n' +
-    this.route.snapshot.queryParamMap.get('queryParam') + '\n' +
-    this.route.snapshot.data['caption']);
+    console.log(' init dash \n');
+    // this.route.snapshot.paramMap.get('id') + '\n' +
+    // this.route.snapshot.queryParamMap.get('queryParam') + '\n' +
+    // this.route.snapshot.data['caption']);
+
+    this.route.queryParamMap.subscribe({
+      next: v => {
+        console.log(' querry:', v + '\n' +
+        v.get('caption') + '\n' +
+        v.get('queryParam'));
+      },
+      error: e => console.log(' error:', e)
+    });
+  
   }
 
 
