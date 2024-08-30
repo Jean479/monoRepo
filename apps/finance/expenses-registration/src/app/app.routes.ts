@@ -2,6 +2,7 @@ import { ActivatedRouteSnapshot, ResolveFn, Route, RouterStateSnapshot, TitleStr
 //import { ExpensesApprovalPageComponent } from './pages/expenses-approval-page/expenses-approval-page.component';
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 // import ExpensesApprovalPageComponent from './pages/expenses-approval-page/expenses-approval-page.component';
 
 @Injectable()
@@ -25,6 +26,7 @@ export const titleResolver: ResolveFn<string> =
 export const appRoutes: Route[] = [
     { path: 'expenses-overview', loadComponent: () => import('./pages/expenses-overview-page/expenses-overview-page.component'), title: titleResolver },
     { path: 'expenses-approval', loadComponent: () => import('./pages/expenses-approval-page/expenses-approval-page.component'), title: titleResolver },
+    { path: 'dashboard/:id', component: DashboardComponent, data: {caption: 'Dash caption'}, title: titleResolver },
     //{ path: 'expenses-overview', component: ExpensesOverviewPageComponent, title: titleResolver },
     // { path: 'expenses-approval', component: ExpensesApprovalPageComponent, title: titleResolver },
     { path: '', pathMatch: 'full', redirectTo: '/expenses-overview'}
