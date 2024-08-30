@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, Input, input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,9 @@ export class DashboardComponent implements OnInit {
   @Input() queryParam?: string;
 
   private route = inject(ActivatedRoute);
+
+  private dashboard = inject(DashboardService);
+
 
   ngOnInit(): void {
     console.log(' init dash \n');
