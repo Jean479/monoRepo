@@ -3,15 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SampleServiceService } from '../../services/sample-service.service';
 import { LoggerService } from '../../services/logger.service';
-import { BetterLoggerService } from '../../services/better-logger.service';
 
 @Component({
   selector: 'app-expenses-overview-page',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  providers: [
-    {provide: LoggerService, useExisting: BetterLoggerService}
-  ],
   templateUrl: './expenses-overview-page.component.html',
   styleUrl: './expenses-overview-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
