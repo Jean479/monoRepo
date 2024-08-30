@@ -11,8 +11,8 @@ export class BasicExtendedService extends BasicService {
   private logger = inject(LoggerService);
    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
    //@ts-ignore
-   constructor(router: Router) {
-      super(router);
+   constructor() {
+      super();
     console.log('constructor BasicExtendedService');
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore

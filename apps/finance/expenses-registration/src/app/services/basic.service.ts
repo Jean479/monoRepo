@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class BasicService {
-  //protected router = inject(Router);
+  protected router = inject(Router);
 
-  constructor(private router: Router) {
+  constructor() {
     console.log('constructor BasicService');
   }
 }
