@@ -2,6 +2,7 @@ import { Component, Inject, inject, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent, NavbarItem } from '@bt-libs/shared/ui/common-components';
 import { BASE_URL } from './app.config';
+import { BasicExtendedService } from './services/basic-extended.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit {
     'gb'
   ]
   //bUrl = inject(BASE_URL);
-  constructor(@Inject(BASE_URL) private bUrl: string) {
+  constructor(@Inject(BASE_URL) private bUrl: string,private basicExtendedService: BasicExtendedService) {
 
   }
 
