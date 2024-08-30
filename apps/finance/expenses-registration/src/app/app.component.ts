@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent, NavbarItem } from '@bt-libs/shared/ui/common-components';
 
@@ -10,7 +10,10 @@ import { NavbarComponent, NavbarItem } from '@bt-libs/shared/ui/common-component
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  @ViewChild (NavbarComponent, {static: true}) navBar!: NavbarComponent;
+
   title = 'finance-expenses-registration';
 
   navItems: NavbarItem[] = [
@@ -23,5 +26,11 @@ export class AppComponent {
     'de',
     'gb'
   ]
+
+  ngOnInit(): void {
+    console.log(' navbar:', this.navBar);
+    
+  }
+ 
 
 }
