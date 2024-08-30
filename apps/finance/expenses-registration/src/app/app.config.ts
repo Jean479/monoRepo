@@ -20,7 +20,7 @@ export const appConfig: ApplicationConfig = {
     { provide: DashboardService, useFactory: DashboardServiceFactory, deps: [UserService]},
     { provide: BASE_URL, useValue: 'anUrl'},
     provideZoneChangeDetection({ eventCoalescing: true }),
-    {provide: TRANSLOCO_TRANSPILER, useClass: MessageFormatTranspiler},
+   // {provide: TRANSLOCO_TRANSPILER, useClass: MessageFormatTranspiler},
     provideTranslocoLocale({
       langToLocaleMapping: { en: 'en-US', fr: 'fr-FR', gb: 'en-GB' }
     }),
@@ -41,8 +41,8 @@ export const appConfig: ApplicationConfig = {
         },
         loader: TranslocoHttpLoader
       }),
-      provideTranslocoMessageformat({
+    provideTranslocoMessageformat({
         locales: 'en-GB'
-      }),
+    }),
   ],
 };
