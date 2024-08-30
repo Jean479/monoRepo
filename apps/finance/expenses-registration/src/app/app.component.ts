@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent, NavbarItem } from '@bt-libs/shared/ui/common-components';
+import { BASE_URL } from './app.config';
 
 
 @Component({
@@ -26,10 +27,11 @@ export class AppComponent implements OnInit {
     'de',
     'gb'
   ]
+  bUrl = inject(BASE_URL);
 
   ngOnInit(): void {
     console.log(' navbar:', this.navBar);
-    
+    console.log(' base url:', this.bUrl);
   }
  
 
