@@ -1,5 +1,5 @@
 <!-- <app-nx-welcome></app-nx-welcome>  -->
-<bt-libs-ui-navbar [navbarItems]="navItems" [languages]="languages"></bt-libs-ui-navbar>
+<bt-libs-ui-navbar [navbarItems]="navItems" [languages]="languages" (languageChange)="onLanguageChange($event)"></bt-libs-ui-navbar>
 <a [routerLink]="'expenses-overview'">overview</a> &nbsp;
 <a [routerLink]="'expenses-approval'">approval</a>
 
@@ -7,3 +7,15 @@
 <router-outlet></router-outlet>
 ooo
 <hr>
+
+<ng-container *transloco="let t">
+{{ t('msg-hello')}}
+</ng-container>
+
+<div>
+    {{ 'msg-hello' | translate }}
+</div>
+    
+<div>
+    {{ aMessage  | translate }}
+</div>
