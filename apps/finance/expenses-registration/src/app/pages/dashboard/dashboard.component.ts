@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input, input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,10 +12,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  
+  // eslint-disable-next-line @angular-eslint/no-input-rename
+  @Input('caption') captionFromRouteData?: string;
+  @Input() queryParam?: string;
+
   private route = inject(ActivatedRoute);
 
   ngOnInit(): void {
     console.log(' init dash \n');
+
+    console.log(' caption:', this.captionFromRouteData);
+    console.log(' queryParam:', this.queryParam);
+    
+
     // this.route.snapshot.paramMap.get('id') + '\n' +
     // this.route.snapshot.queryParamMap.get('queryParam') + '\n' +
     // this.route.snapshot.data['caption']);
