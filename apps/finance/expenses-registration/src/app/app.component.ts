@@ -6,12 +6,15 @@ import { BasicExtendedService } from './services/basic-extended.service';
 import { provideTranslocoTranspiler, TranslocoDirective, TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { TranslatePipe } from './transloco-loader';
 import { TranslocoCurrencyPipe, TranslocoDatePipe } from '@jsverse/transloco-locale';
+import { HightlightDirective } from '@bt-libs/shared/ui/common-directives';
   
 
 @Component({
   standalone: true,
-  imports: [RouterModule, NavbarComponent, TranslocoDirective, TranslocoPipe, TranslatePipe, TranslocoCurrencyPipe,
-     TranslocoDatePipe],
+  imports: [
+    RouterModule, NavbarComponent, TranslocoDirective,
+    TranslocoPipe, TranslatePipe, TranslocoCurrencyPipe, 
+    TranslocoDatePipe, HightlightDirective],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
