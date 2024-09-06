@@ -31,11 +31,11 @@ export class MyBtnComponent implements OnInit {
   count = 0;
 
   ngOnInit(): void {
-    this.timer.subscribe({
-       next:  v => { this.count = v; console.log(' ffff:', v);
-        }, 
-       error: e => console.log(' error:', e)
-     }) 
+    // this.timer.subscribe({
+    //    next:  v => { this.count = v; console.log(' ffff:', v);
+    //     }, 
+    //    error: e => console.log(' error:', e)
+    //  }) 
   }
 
 }

@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { TableComponent } from '@bt-libs/shared/ui/common-components';
+import { SelectableLabelComponent, TableComponent } from '@bt-libs/shared/ui/common-components';
 import { LoggerService } from '../../services/logger.service';
 import { MultiplyPipe } from '@bt-libs/shared/util/common-pipes';
 
 @Component({
   selector: 'app-expenses-approval-page',
   standalone: true,
-  imports: [CommonModule, TableComponent, MultiplyPipe],
+  imports: [CommonModule, TableComponent, MultiplyPipe, SelectableLabelComponent],
   providers: [
     DatePipe,
     MultiplyPipe

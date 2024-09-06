@@ -1,5 +1,6 @@
 import { ApplicationConfig, InjectionToken, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideAnimations } from '@angular/platform-browser/animations'; 
 import { appRoutes } from './app.routes';
 import { BetterLoggerService } from './services/better-logger.service';
 import { LoggerService } from './services/logger.service';
@@ -16,6 +17,7 @@ export const BASE_URL = new InjectionToken<string>('BASE_URL');
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideAnimations(),
     { provide: LoggerService, useExisting: BetterLoggerService },
     { provide: DashboardService, useFactory: DashboardServiceFactory, deps: [UserService]},
     { provide: BASE_URL, useValue: 'anUrl'},
