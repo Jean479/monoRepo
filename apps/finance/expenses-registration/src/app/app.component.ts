@@ -1,6 +1,6 @@
 import { Component, Inject, inject, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent, NavbarItem } from '@bt-libs/shared/ui/common-components';
+import { NavbarComponent, NavbarItem, MyBtnComponent } from '@bt-libs/shared/ui/common-components';
 import { BASE_URL } from './app.config';
 import { BasicExtendedService } from './services/basic-extended.service';
 import { TranslocoDirective, TranslocoPipe, TranslocoService } from '@jsverse/transloco';
@@ -13,7 +13,7 @@ import { NgFor } from '@angular/common';
 @Component({
   standalone: true,
   imports: [
-    RouterModule, NavbarComponent, TranslocoDirective,
+    RouterModule, NavbarComponent, TranslocoDirective, MyBtnComponent,
     TranslocoPipe, TranslatePipe, TranslocoCurrencyPipe, NgFor, 
     TranslocoDatePipe, HightlightDirective, IfFalseDirective],
   selector: 'app-root',
