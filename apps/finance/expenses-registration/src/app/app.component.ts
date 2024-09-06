@@ -61,4 +61,7 @@ export class AppComponent implements OnInit {
     this.transLocoService.setActiveLang($event);
   }
 
+  trackByFunction(index: any, item: any) {
+    return item
+  }
 }
