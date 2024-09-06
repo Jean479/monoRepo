@@ -1,0 +1,9 @@
+<p>selectable-label works!</p>
+<!-- <span (click)="onSelectionChanged()">{{labelText}}</span>
+<br>
+<br>
+<hr> -->
+
+<span (click)="onSelectionChanged()" [@selectedState]="animationState">
+    {{labelText | uppercase}}
+</span>
