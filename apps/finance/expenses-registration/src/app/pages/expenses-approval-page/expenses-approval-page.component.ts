@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { TableComponent } from '@bt-libs/shared/ui/common-components';
 import { LoggerService } from '../../services/logger.service';
 
@@ -7,6 +7,9 @@ import { LoggerService } from '../../services/logger.service';
   selector: 'app-expenses-approval-page',
   standalone: true,
   imports: [CommonModule, TableComponent],
+  providers: [
+    DatePipe
+  ],
   // providers: [
   //   {provide: LoggerService, useExisting: BetterLoggerService}
   // ],
@@ -19,6 +22,8 @@ export default class ExpensesApprovalPageComponent implements OnInit {
 
   private loggerService = inject(LoggerService);
 
+  private datePipe = inject(DatePipe);
+
   data = 'initData';
 
   handleDataChange($event: any) {
@@ -30,6 +35,11 @@ export default class ExpensesApprovalPageComponent implements OnInit {
   ngOnInit(): void {
     this.loggerService.info('Message à logger ExpensesApprovalPageComponent');
     this.loggerService.list();
+
+    
+    const dd = this.datePipe.transform(new Date(), 'dd/MM/yyyy');
+    console.log(' dd:', dd);
+    
   }
 
 }

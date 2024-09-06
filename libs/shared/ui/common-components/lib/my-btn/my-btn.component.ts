@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Directive, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Directive, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { interval, Observable } from 'rxjs';
 
 @Directive({
   selector: '[btLibsUiTypeDirective]',
@@ -24,4 +25,17 @@ export class TypeDirective {
   styleUrl: './my-btn.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MyBtnComponent {}
+export class MyBtnComponent implements OnInit {
+
+  timer: Observable<number> = interval(2000);
+  count = 0;
+
+  ngOnInit(): void {
+    this.timer.subscribe({
+       next:  v => { this.count = v; console.log(' ffff:', v);
+        }, 
+       error: e => console.log(' error:', e)
+     }) 
+  }
+
+}
