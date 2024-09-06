@@ -3,17 +3,18 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent, NavbarItem } from '@bt-libs/shared/ui/common-components';
 import { BASE_URL } from './app.config';
 import { BasicExtendedService } from './services/basic-extended.service';
-import { provideTranslocoTranspiler, TranslocoDirective, TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { TranslocoDirective, TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { TranslatePipe } from './transloco-loader';
 import { TranslocoCurrencyPipe, TranslocoDatePipe } from '@jsverse/transloco-locale';
 import { HightlightDirective } from '@bt-libs/shared/ui/common-directives';
+import { NgFor } from '@angular/common';
   
 
 @Component({
   standalone: true,
   imports: [
     RouterModule, NavbarComponent, TranslocoDirective,
-    TranslocoPipe, TranslatePipe, TranslocoCurrencyPipe, 
+    TranslocoPipe, TranslatePipe, TranslocoCurrencyPipe, NgFor, 
     TranslocoDatePipe, HightlightDirective],
   selector: 'app-root',
   templateUrl: './app.component.html',
