@@ -3,11 +3,12 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { SelectableLabelComponent, TableComponent } from '@bt-libs/shared/ui/common-components';
 import { LoggerService } from '../../services/logger.service';
 import { MultiplyPipe } from '@bt-libs/shared/util/common-pipes';
+import { AddExpenseComponent } from '@bt-libs/finance/ui/expenses-registration-forms';
 
 @Component({
   selector: 'app-expenses-approval-page',
   standalone: true,
-  imports: [CommonModule, TableComponent, MultiplyPipe, SelectableLabelComponent],
+  imports: [CommonModule, TableComponent, MultiplyPipe, SelectableLabelComponent, AddExpenseComponent],
   providers: [
     DatePipe,
     MultiplyPipe
