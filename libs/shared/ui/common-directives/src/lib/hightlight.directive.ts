@@ -1,4 +1,4 @@
-import { Directive, ElementRef, inject, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostBinding, inject, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[btLibsUiHightlight]',
@@ -6,6 +6,8 @@ import { Directive, ElementRef, inject, OnInit } from '@angular/core';
 })
 export class HightlightDirective implements OnInit {
   
+  @HostBinding('style.backgroundColor') get Color() { return 'red'}
+
   private el = inject(ElementRef).nativeElement as HTMLElement;
 
   constructor() {
@@ -16,6 +18,6 @@ export class HightlightDirective implements OnInit {
   ngOnInit(): void {
     console.log('>>>>>>>>>>>>>>> laaaaa');
     
-    this.el.style.backgroundColor = 'blue';
+    //this.el.style.backgroundColor = 'blue';
   }
 }
