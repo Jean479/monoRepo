@@ -6,7 +6,7 @@ import { BasicExtendedService } from './services/basic-extended.service';
 import { TranslocoDirective, TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { TranslatePipe } from './transloco-loader';
 import { TranslocoCurrencyPipe, TranslocoDatePipe } from '@jsverse/transloco-locale';
-import { HightlightDirective } from '@bt-libs/shared/ui/common-directives';
+import { HightlightDirective, IfFalseDirective } from '@bt-libs/shared/ui/common-directives';
 import { NgFor } from '@angular/common';
   
 
@@ -15,7 +15,7 @@ import { NgFor } from '@angular/common';
   imports: [
     RouterModule, NavbarComponent, TranslocoDirective,
     TranslocoPipe, TranslatePipe, TranslocoCurrencyPipe, NgFor, 
-    TranslocoDatePipe, HightlightDirective],
+    TranslocoDatePipe, HightlightDirective, IfFalseDirective],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
