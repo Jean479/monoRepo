@@ -1,4 +1,5 @@
 {
+    "genderize": "{gender, select, male {Il} female {Elle} other {Ils} }",
     "hello-you": "Hello {{user}}",
     "icu": {
         "title": "ICU Message Formatage",

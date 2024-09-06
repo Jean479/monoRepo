@@ -54,3 +54,7 @@ ooo
     <p>{{ t('icu.pluralization', {count: 1}) }}</p>
     <p>{{ t('icu.pluralization', {count: 10}) }}</p>
 </ng-container>
+
+<p>{{ 'genderize' | transloco: {gender: 'male'} }} </p>
+<p>{{ 'genderize' | transloco: {gender: 'female'} }} </p>
+<p>{{ 'genderize' | transloco }} </p>
