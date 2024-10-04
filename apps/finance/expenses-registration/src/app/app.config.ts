@@ -7,17 +7,19 @@ import { LoggerService } from './services/logger.service';
 import { DashboardService } from './services/dashboard.service';
 import { DashboardServiceFactory } from './factory/dashboard-service-factory';
 import { UserService } from './services/user.service';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { getBrowserLang, provideTransloco, TRANSLOCO_TRANSPILER } from '@jsverse/transloco';
 import { provideTranslocoLocale } from '@jsverse/transloco-locale';
 import { MessageFormatTranspiler, provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
+import { MockInterceptor } from '@bt-libs/shared/data-access/generic-http';
 
 export const BASE_URL = new InjectionToken<string>('BASE_URL');
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
+    provideHttpClient(withInterceptors([MockInterceptor])),
     { provide: LoggerService, useExisting: BetterLoggerService },
     { provide: DashboardService, useFactory: DashboardServiceFactory, deps: [UserService]},
     { provide: BASE_URL, useValue: 'anUrl'},
