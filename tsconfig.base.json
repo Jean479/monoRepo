@@ -21,6 +21,9 @@
       "@bt-libs/finance/ui/expenses-registration-forms": [
         "libs/finance/ui/expenses-registration-forms/src/index.ts"
       ],
+      "@bt-libs/shared/data-access/generic-http": [
+        "libs/shared/data-access/generic-http/src/index.ts"
+      ],
       "@bt-libs/shared/ui/common-components": [
         "libs/shared/ui/common-components/src/index.ts"
       ],
