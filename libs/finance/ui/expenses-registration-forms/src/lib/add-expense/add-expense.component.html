@@ -1,10 +1,9 @@
 <!-- Template driven form -->
 
-<div class="form-container">
+<!-- <div class="form-container">
   <form #addExpenseForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-field">
       <label for="description">Description:</label>
-      <!-- <input  required [(ngModel)]="expenseToAdd.description" -->
       <input [btLibsUtilMaxWordCount]="2" required [(ngModel)]="expenseToAdd.description"
         [ngModelOptions]="{name: 'description', standalone: false}" #description="ngModel" type="text" id="description">
       <span *ngIf="addExpenseForm.touched && description.hasError('required')">This field is required</span>
@@ -32,5 +31,45 @@
       <span *ngIf="addExpenseForm.touched && date.hasError('required')">This field is required</span>
     </div>
     <button [disabled]="addExpenseForm.invalid" type="submit">Submit</button>
+  </form>
+</div> -->
+
+<!-- Reactive form -->
+
+<div class="form-container">
+  <form [formGroup]="addExpenseForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="description">Description:</label>
+      <input formControlName="description" type="text">
+      <span *ngIf="addExpenseForm.touched && addExpenseForm.controls.description.hasError('required')">This field is
+        required</span>
+    </div>
+    <fieldset formGroupName="amount">
+      <div class="form-field">
+        <label for="amountExclVat">Amount excl. VAT:</label>
+        <input formControlName="amountExclVat" type="number">
+      </div>
+      <div class="form-field">
+        <label for="vatPercentage">VAT percentage:</label>
+        <input formControlName="vatPercentage" type="number">
+      </div>
+    </fieldset>
+    <div class="form-field">
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" formControlName="date">
+    </div>
+    <fieldset formArrayName="tags">
+      <div class="form-field" *ngFor="let item of addExpenseForm.controls.tags.controls; index as i">
+        <label for="tag-{{i}}">Tag:</label>
+        <div class="tag-field">
+          <input [formControlName]="i" type="text" id="tag-{{i}}">
+          <div>
+            <button *ngIf="i > 0" (click)="removeTag(i)">-</button>
+            <button (click)="addTag()">+</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <button type="submit" [disabled]="addExpenseForm.invalid">Submit</button>
   </form>
 </div>
