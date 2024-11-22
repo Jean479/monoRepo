@@ -83,6 +83,13 @@ export class ExpensesStore {
     });
   }
 
+  fetchExpenses(): void {
+    this.expensesApi.get().subscribe({
+      next: (expenses) => { this.expenses.next(expenses); },
+      error: (err) => { console.log('err ==>', err) }
+    })
+  }
+
   //constructor() { }
 
   fetchService(): void {
